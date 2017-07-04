@@ -15,17 +15,22 @@ class toolbar {
   create() {
     this.createRoot();
 
-    let text = document.createElement('p');
+    let text = document.createElement('div');
     text.style.color = '#f00';
+    text.style.float = 'left';
+    text.style.textAlign = 'left';
+    text.style.marginLeft = '10px';
     text.innerHTML = this.message;
 
     let buttonOk = document.createElement('button');
     buttonOk.innerHTML = "Ok?";
+    buttonOk.style.display = 'inline';
     buttonOk.addEventListener('click', this.clickOk);
 
     let buttonX = document.createElement('button');
     buttonX.innerHTML = "x";
     buttonX.style.float = 'right';
+    buttonX.style.display = 'inline';
     buttonX.addEventListener('click', () => {
       this.moveOutRoot();
       this.close();
@@ -41,12 +46,12 @@ class toolbar {
   createRoot() {
     this.root = document.createElement('div');
     this.root.style.position = 'fixed';
-    this.root.style.height = '30px';
-    this.root.style.width = '100%';
+    this.root.style.height = '40px';
+    this.root.style.width = '99%';
     this.root.style.display = 'inline-block';
     this.root.style.backgroundColor = '#ff0';
     this.root.style.textAlign = 'center';
-    this.root.style.margin = '0px auto';
+    this.root.style.padding = '5px';
     this.moveInRoot();
   }
 
