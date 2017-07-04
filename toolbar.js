@@ -5,6 +5,13 @@ class toolbar {
     this.close = options.close;
     this.clickOk = options.clickOk;
     this.position = options.position;
+    this.buttonText = options.buttonText;
+
+    if(this.buttonText === undefined)
+      this.buttonText = 'Ok?';
+
+    if(this.message === undefined)
+      this.message = "";
 
     this.root = null;
     this.gap = -100;
@@ -23,9 +30,9 @@ class toolbar {
     text.innerHTML = this.message;
 
     let buttonOk = document.createElement('button');
-    buttonOk.innerHTML = "Ok?";
+    buttonOk.innerHTML = this.buttonText;
     buttonOk.style.display = 'inline';
-    buttonOk.style.backgroundColor = '#4CAF50';
+    buttonOk.style.backgroundColor = '#ffbe00';
     buttonOk.style.padding = '10px 24px';
     buttonOk.style.borderRadius = '6px';
     buttonOk.style.border = '0px';
