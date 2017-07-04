@@ -55,7 +55,7 @@ class toolbar {
   createRoot() {
     this.root = document.createElement('div');
     this.root.style.position = 'fixed';
-    this.root.style.height = '40px';
+    // this.root.style.height = '40px';
     this.root.style.width = '98%';
     this.root.style.display = 'inline-block';
     this.root.style.backgroundColor = '#333';
@@ -64,6 +64,7 @@ class toolbar {
     this.root.style.verticalAlign = 'middle';
     this.root.style.padding = '5px';
     this.root.style.marginRight = '5px';
+    this.root.style.fontFamily = 'Lucida Sans Unicode';
     this.moveInRoot();
   }
 
