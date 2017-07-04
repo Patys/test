@@ -20,3 +20,4 @@ var myBarTop = new toolbar({
 });
 </script>
 ```
+![screen](https://github.com/Patys/test/blob/master/screenshot.png)
