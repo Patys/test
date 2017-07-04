@@ -6,13 +6,14 @@ class toolbar {
     this.clickOk = options.clickOk;
     this.position = options.position;
 
+    this.root = null;
+    this.gap = -100;
+
     this.create();
   }
 
   create() {
-    let root = document.createElement('div');
-    root.style.position = 'fixed';
-    root.style.backgroundColor = '#ff0';
+    this.createRoot();
 
     let text = document.createElement('p');
     text.style.color = '#f00';
@@ -24,12 +25,108 @@ class toolbar {
 
     let buttonX = document.createElement('button');
     buttonX.innerHTML = "x";
-    buttonX.addEventListener('click', this.close);
+    buttonX.style.float = 'right';
+    buttonX.addEventListener('click', () => {
+      this.moveOutRoot();
+      this.close();
+    });
 
-    root.appendChild(text);
-    root.appendChild(buttonOk);
-    root.appendChild(buttonX);
+    this.addElement(text);
+    this.addElement(buttonOk);
+    this.addElement(buttonX);
 
-    document.body.appendChild(root);
+    document.body.appendChild(this.root);
+  }
+
+  createRoot() {
+    this.root = document.createElement('div');
+    this.root.style.position = 'fixed';
+    this.root.style.height = '30px';
+    this.root.style.width = '100%';
+    this.root.style.display = 'inline-block';
+    this.root.style.backgroundColor = '#ff0';
+    this.root.style.textAlign = 'center';
+    this.root.style.margin = '0px auto';
+    this.moveInRoot();
+  }
+
+  addElement(el) {
+    this.root.appendChild(el);
+  }
+
+  moveInRoot() {
+    if(this.position === 'top') {
+      this.moveInRootTop();
+    } else {
+      this.moveInRootBottom();
+    }
+  }
+
+  moveInRootTop() {
+    var s = this.root.style;
+    var counter = this.gap;
+    var timeout = null;
+    (function fade() {
+      if(counter < 0) {
+        timeout = setTimeout(fade,5);
+        counter += 1;
+      } else {
+        clearTimeout(timeout);
+      }
+      s.top = `${counter}px`;
+    })();
+  }
+
+  moveInRootBottom() {
+    var s = this.root.style;
+    var counter = this.gap;
+    var timeout = null;
+    (function fade() {
+      if(counter < 0) {
+        timeout = setTimeout(fade,5);
+        counter += 1;
+      } else {
+        clearTimeout(timeout);
+      }
+      s.bottom = `${counter}px`;
+    })();
+  }
+
+  moveOutRoot() {
+    if(this.position === 'top') {
+      this.moveOutRootTop();
+    } else {
+      this.moveOutRootBottom();
+    }
+  }
+
+  moveOutRootTop() {
+    var s = this.root.style;
+    var counter = 0;
+    var timeout = null;
+    var gap = this.gap;
+    (function fade() {
+      if(counter > gap) {
+        timeout = setTimeout(fade,5);
+        counter -= 1;
+      } else {
+        clearTimeout(timeout);
+      }
+      s.top = `${counter}px`;
+    })();
+  }
+
+  moveOutRootBottom() {
+    var s = this.root.style;
+    var counter = 0;
+    var timeout = null;
+    var gap = this.gap;
+    (function fade() {
+      if(counter > gap) {
+        timeout = setTimeout(fade,5);
+        counter -= 1;
+      }
+      s.bottom = `${counter}px`;
+    })();
   }
 }
