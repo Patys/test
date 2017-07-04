@@ -16,7 +16,7 @@ class toolbar {
     this.createRoot();
 
     let text = document.createElement('div');
-    text.style.color = '#f00';
+    text.style.color = '#fff';
     text.style.float = 'left';
     text.style.textAlign = 'left';
     text.style.marginLeft = '10px';
@@ -25,7 +25,7 @@ class toolbar {
     let buttonOk = document.createElement('button');
     buttonOk.innerHTML = "Ok?";
     buttonOk.style.display = 'inline';
-    buttonOk.style.backgroundColor = '#008CBA';
+    buttonOk.style.backgroundColor = '#4CAF50';
     buttonOk.style.padding = '10px 24px';
     buttonOk.style.borderRadius = '6px';
     buttonOk.style.border = '0px';
@@ -58,9 +58,12 @@ class toolbar {
     this.root.style.height = '40px';
     this.root.style.width = '99%';
     this.root.style.display = 'inline-block';
-    this.root.style.backgroundColor = '#e7e7e7';
+    this.root.style.backgroundColor = '#333';
     // this.root.style.textAlign = 'center';
+    this.root.style.lineHeight = '40px';
+    this.root.style.verticalAlign = 'middle';
     this.root.style.padding = '5px';
+    this.root.style.margin = '0px';
     this.moveInRoot();
   }
 
@@ -139,6 +142,8 @@ class toolbar {
       if(counter > gap) {
         timeout = setTimeout(fade,5);
         counter -= 1;
+      } else {
+        clearTimeout(timeout)
       }
       s.bottom = `${counter}px`;
     })();
