@@ -25,12 +25,21 @@ class toolbar {
     let buttonOk = document.createElement('button');
     buttonOk.innerHTML = "Ok?";
     buttonOk.style.display = 'inline';
+    buttonOk.style.backgroundColor = '#008CBA';
+    buttonOk.style.padding = '10px 24px';
+    buttonOk.style.borderRadius = '6px';
+    buttonOk.style.border = '0px';
+    buttonOk.style.marginLeft = '15px';
     buttonOk.addEventListener('click', this.clickOk);
 
     let buttonX = document.createElement('button');
     buttonX.innerHTML = "x";
     buttonX.style.float = 'right';
     buttonX.style.display = 'inline';
+    buttonX.style.backgroundColor = '#f44336';
+    buttonX.style.padding = '5px 10px';
+    buttonX.style.borderRadius = '3px';
+    buttonX.style.border = '0px';
     buttonX.addEventListener('click', () => {
       this.moveOutRoot();
       this.close();
@@ -49,8 +58,8 @@ class toolbar {
     this.root.style.height = '40px';
     this.root.style.width = '99%';
     this.root.style.display = 'inline-block';
-    this.root.style.backgroundColor = '#ff0';
-    this.root.style.textAlign = 'center';
+    this.root.style.backgroundColor = '#e7e7e7';
+    // this.root.style.textAlign = 'center';
     this.root.style.padding = '5px';
     this.moveInRoot();
   }
@@ -68,9 +77,9 @@ class toolbar {
   }
 
   moveInRootTop() {
-    var s = this.root.style;
-    var counter = this.gap;
-    var timeout = null;
+    let s = this.root.style;
+    let counter = this.gap;
+    let timeout = null;
     (function fade() {
       if(counter < 0) {
         timeout = setTimeout(fade,5);
@@ -83,9 +92,9 @@ class toolbar {
   }
 
   moveInRootBottom() {
-    var s = this.root.style;
-    var counter = this.gap;
-    var timeout = null;
+    let s = this.root.style;
+    let counter = this.gap;
+    let timeout = null;
     (function fade() {
       if(counter < 0) {
         timeout = setTimeout(fade,5);
@@ -106,10 +115,10 @@ class toolbar {
   }
 
   moveOutRootTop() {
-    var s = this.root.style;
-    var counter = 0;
-    var timeout = null;
-    var gap = this.gap;
+    let s = this.root.style;
+    let counter = 0;
+    let timeout = null;
+    let gap = this.gap;
     (function fade() {
       if(counter > gap) {
         timeout = setTimeout(fade,5);
@@ -122,10 +131,10 @@ class toolbar {
   }
 
   moveOutRootBottom() {
-    var s = this.root.style;
-    var counter = 0;
-    var timeout = null;
-    var gap = this.gap;
+    let s = this.root.style;
+    let counter = 0;
+    let timeout = null;
+    let gap = this.gap;
     (function fade() {
       if(counter > gap) {
         timeout = setTimeout(fade,5);
