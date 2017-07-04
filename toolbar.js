@@ -56,14 +56,14 @@ class toolbar {
     this.root = document.createElement('div');
     this.root.style.position = 'fixed';
     this.root.style.height = '40px';
-    this.root.style.width = '99%';
+    this.root.style.width = '98%';
     this.root.style.display = 'inline-block';
     this.root.style.backgroundColor = '#333';
     // this.root.style.textAlign = 'center';
     this.root.style.lineHeight = '40px';
     this.root.style.verticalAlign = 'middle';
     this.root.style.padding = '5px';
-    this.root.style.margin = '0px';
+    this.root.style.marginRight = '5px';
     this.moveInRoot();
   }
 
